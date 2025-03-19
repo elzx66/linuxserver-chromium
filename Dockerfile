@@ -16,6 +16,12 @@ RUN echo "deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted un
 RUN echo "deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse" >> /etc/apt/sources.list
 RUN echo "deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse" >> /etc/apt/sources.list
 
+# 添加缺失的公钥
+RUN apt-get update \
+    && apt-get install -y gnupg \
+    && gpg --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 871920D1991BC93C \
+    && gpg --export --armor 3B4FE6ACC0B21F32 871920D1991BC93C | apt-key add -
+
 # 更新系统并安装中文语言包和字体
 RUN apt-get update --fix-missing && apt-get install -y \
     language-pack-zh-hans \
