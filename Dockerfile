@@ -8,7 +8,7 @@ ENV LANGUAGE=zh_CN:zh
 ENV LC_ALL=zh_CN.UTF-8
 
 # 更新系统并安装中文语言包和字体
-RUN apt-get update && apt-get install -y \
+RUN apt-get update --fix-missing && apt-get install -y \
     language-pack-zh-hans \
     fonts-wqy-zenhei \
     && rm -rf /var/lib/apt/lists/*
