@@ -27,6 +27,6 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/diy-chrome:1.0.0
-            ghcr.io/${{ github.repository_owner }}/diy-chrome:latest
+            ghcr.io/${{ github.repository_owner }}/liunxserver-chrome-chinese:1.0.0
+            ghcr.io/${{ github.repository_owner }}/liunxserver-chrome-chinese:latest
     
