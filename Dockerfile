@@ -30,5 +30,6 @@ RUN apt-get update --fix-missing && apt-get install -y \
     fonts-wqy-zenhei \
     && rm -rf /var/lib/apt/lists/*
 
-# 配置 Chrome 接受中文语言
-RUN echo '{ "intl": { "accept_languages": "zh-CN,zh" } }' > /config/chromium/Default/Preferences
+# 创建目录并配置 Chrome 接受中文语言
+RUN mkdir -p /config/chromium/Default \
+    && echo '{ "intl": { "accept_languages": "zh-CN,zh" } }' > /config/chromium/Default/Preferences
